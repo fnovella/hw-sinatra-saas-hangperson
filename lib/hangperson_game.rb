@@ -53,4 +53,12 @@ class HangpersonGame
     word.each_char { |char| tried += guesses[char] ? char : '-' }
     tried
   end
+  
+  def check_win_or_lose
+    if word_with_guesses['-']
+      wrong_guesses.length < 7 ? :play : :lose
+    else
+      :win
+    end
+  end
 end
