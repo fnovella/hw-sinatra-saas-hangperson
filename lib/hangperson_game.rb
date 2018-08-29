@@ -47,4 +47,10 @@ class HangpersonGame
       end
     end
   end
+  
+  def word_with_guesses
+    tried = ''
+    word.each_char { |char| tried += guesses[char] ? char : '-' }
+    tried
+  end
 end
