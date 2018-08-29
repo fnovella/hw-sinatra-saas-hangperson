@@ -25,4 +25,26 @@ class HangpersonGame
     }
   end
 
+  def guess(char)
+    if char.nil? || char.empty? || ! (char =~ /[[:alpha:]]/)
+      raise ArgumentError
+    end
+
+    char.downcase!
+    if word[char]
+      if ! guesses[char]
+        guesses << char
+        true
+      else
+        false
+      end
+    else
+      if ! wrong_guesses[char]
+        wrong_guesses << char
+        true
+      else
+        false
+      end
+    end
+  end
 end
